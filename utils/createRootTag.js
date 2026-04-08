@@ -11,7 +11,7 @@ const changelog = fs.readFileSync(
 // second "## Release" heading) so we never re-read a version from a prior
 // release and can't accidentally try to create a tag that already exists.
 const latestBlockMatch = changelog.match(
-    /^## Release[\s\S]*?(?=\n## Release|$)/m,
+  /^## Release[\s\S]*?(?=\n## Release|$)/,
 );
 const latestBlock = latestBlockMatch ? latestBlockMatch[0] : changelog;
 
