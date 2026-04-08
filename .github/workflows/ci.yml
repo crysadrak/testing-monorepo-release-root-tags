@@ -69,8 +69,6 @@ jobs:
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/@test-mono/')
     needs: setup
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -90,11 +88,9 @@ jobs:
       - name: Restore workspaces
         run: npm ci
 
-      - name: Create npmrc file
-        run: echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+      - name: Publish to NPM (dry-run)
+        run: echo "[dry-run] would publish $(node -e "process.stdout.write(require('./package.json').name)")"
 
-      - name: Publish to NPM
-        run: npm run release:publish
 
       - name: Extract Latest Root Changelog
         run: npm run release:extract-changelog
