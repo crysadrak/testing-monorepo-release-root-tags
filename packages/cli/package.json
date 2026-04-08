@@ -1,6 +1,6 @@
 {
     "name": "@test-mono/cli",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "description": "CLI tool for testing monorepo release process.",
     "main": "src/index.js",
     "scripts": {
@@ -8,7 +8,7 @@
         "test": "echo 'test cli passed'"
     },
     "dependencies": {
-        "@test-mono/core": "^0.2.1"
+        "@test-mono/core": "^1.0.0"
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org/",

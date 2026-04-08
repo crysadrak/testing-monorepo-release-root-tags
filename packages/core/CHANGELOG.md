@@ -1,5 +1,11 @@
 # @test-mono/core
 
+## 1.0.0
+
+### Major Changes
+
+- a2e73c1: New majors
+
 ## 0.2.1
 
 ### Patch Changes
