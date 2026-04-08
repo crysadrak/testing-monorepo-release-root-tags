@@ -1,6 +1,25 @@
 ## Release (2026-04-08)
 
 ### cli
+#### 0.3.0
+
+##### Minor Changes
+
+- 325dbe0: Version
+
+
+### core
+#### 0.2.1
+
+##### Patch Changes
+
+- c935653: Fix
+
+
+
+## Release (2026-04-08)
+
+### cli
 #### 0.2.1
 
 ##### Patch Changes

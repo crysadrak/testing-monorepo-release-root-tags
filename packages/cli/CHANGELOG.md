@@ -1,5 +1,11 @@
 # @test-mono/cli
 
+## 0.3.0
+
+### Minor Changes
+
+- 325dbe0: Version
+
 ## 0.2.1
 
 ### Patch Changes
