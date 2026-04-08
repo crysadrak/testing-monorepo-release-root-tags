@@ -1,0 +1,23 @@
+{
+    "name": "testing-monorepo-release-root-tags",
+    "description": "Testing monorepo for release process with root tags",
+    "private": true,
+    "devDependencies": {
+        "@changesets/cli": "^2.26.2",
+        "nx": "^19.0.0"
+    },
+    "scripts": {
+        "changeset": "changeset add",
+        "build": "nx run-many -t build",
+        "test": "nx run-many -t test",
+        "release": "npm run release:prepare && npm run release:push",
+        "release:prepare": "npm run check:uncommitted:changes && changeset version && node utils/copyReadme.js && node utils/syncRootChangelog.js && npm i --package-lock-only --ignore-scripts",
+        "release:push": "git add . && git commit -m 'release: publish' && changeset tag && node utils/createRootTag.js && git push --follow-tags",
+        "release:publish": "changeset publish --no-git-tag",
+        "release:extract-changelog": "node utils/extractChangelog.js",
+        "check:uncommitted:changes": "test \"`git status . --porcelain`\" && echo 'There are uncommitted changes. Aborting release.' && exit 1 || exit 0"
+    },
+    "workspaces": [
+        "packages/*"
+    ]
+}

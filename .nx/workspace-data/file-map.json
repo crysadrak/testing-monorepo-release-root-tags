@@ -1,0 +1,175 @@
+{
+  "version": "6.0",
+  "nxVersion": "19.8.14",
+  "deps": {
+    "@changesets/cli": "^2.26.2",
+    "nx": "^19.0.0"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".nx/workspace-data/d/server-process.json",
+        "hash": "12731607305517057287"
+      },
+      {
+        "file": ".nx/cache/11456545102362695110.commit",
+        "hash": "4664556114322093609"
+      },
+      {
+        "file": ".nvmrc",
+        "hash": "14743000810602433389"
+      },
+      {
+        "file": "CHANGELOG.md",
+        "hash": "7029576165764549660"
+      },
+      {
+        "file": "nx.json",
+        "hash": "3432287575697607967"
+      },
+      {
+        "file": ".nx/cache/run.json",
+        "hash": "2275251112832085724"
+      },
+      {
+        "file": ".nx/cache/11456545102362695110/terminalOutput",
+        "hash": "6072294506805303291"
+      },
+      {
+        "file": ".nx/workspace-data/082FFFEF-304C-5295-8882-F5679393AB24.db",
+        "hash": "425343829113797265"
+      },
+      {
+        "file": "utils/syncRootChangelog.js",
+        "hash": "2904432546967710046"
+      },
+      {
+        "file": ".nx/cache/10037384644148156224/terminalOutput",
+        "hash": "10242062611389907668"
+      },
+      {
+        "file": "README.md",
+        "hash": "10463322683882565915"
+      },
+      {
+        "file": ".nx/cache/10037384644148156224/code",
+        "hash": "1838281907459330133"
+      },
+      {
+        "file": "utils/createRootTag.js",
+        "hash": "5705586133574514792"
+      },
+      {
+        "file": ".nx/workspace-data/parsed-lock-file.json",
+        "hash": "10854411031482849053"
+      },
+      {
+        "file": "utils/copyReadme.js",
+        "hash": "4329515701580990230"
+      },
+      {
+        "file": ".nx/workspace-data/lockfile.hash",
+        "hash": "1352651274192959730"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "7771522478030687797"
+      },
+      {
+        "file": ".nx/cache/10037384644148156224/source",
+        "hash": "8194338270885205597"
+      },
+      {
+        "file": "package.json",
+        "hash": "3267990718087524666"
+      },
+      {
+        "file": ".nx/workspace-data/082FFFEF-304C-5295-8882-F5679393AB24.db-shm",
+        "hash": "1420048158098349891"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/10037384644148156224",
+        "hash": "10242062611389907668"
+      },
+      {
+        "file": ".nx/workspace-data/file-map.json",
+        "hash": "822266297201901864"
+      },
+      {
+        "file": ".nx/cache/11456545102362695110/code",
+        "hash": "1838281907459330133"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/11456545102362695110",
+        "hash": "6072294506805303291"
+      },
+      {
+        "file": ".nx/cache/10037384644148156224.commit",
+        "hash": "4664556114322093609"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json",
+        "hash": "13714457049290349908"
+      },
+      {
+        "file": ".nx/workspace-data/nx_files.nxt",
+        "hash": "8044405902734541171"
+      },
+      {
+        "file": ".nx/workspace-data/082FFFEF-304C-5295-8882-F5679393AB24.db-wal",
+        "hash": "7001631625625054834"
+      },
+      {
+        "file": ".changeset/config.json",
+        "hash": "14025139888737801651"
+      },
+      {
+        "file": ".nx/cache/11456545102362695110/source",
+        "hash": "8194338270885205597"
+      },
+      {
+        "file": "utils/extractChangelog.js",
+        "hash": "11794840576049351295"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "12861087970518879694"
+      }
+    ],
+    "projectFileMap": {
+      "@test-mono/core": [
+        {
+          "file": "packages/core/CHANGELOG.md",
+          "hash": "18889782947628490"
+        },
+        {
+          "file": "packages/core/package.json",
+          "hash": "14427431885889942329"
+        },
+        {
+          "file": "packages/core/src/index.js",
+          "hash": "11334864919428738851"
+        }
+      ],
+      "@test-mono/cli": [
+        {
+          "file": "packages/cli/CHANGELOG.md",
+          "hash": "18353926198374381622"
+        },
+        {
+          "file": "packages/cli/package.json",
+          "hash": "17195379466821021620",
+          "deps": [
+            "@test-mono/core"
+          ]
+        },
+        {
+          "file": "packages/cli/src/index.js",
+          "hash": "13292505611564242017"
+        }
+      ]
+    }
+  }
+}
