@@ -1,0 +1,19 @@
+{
+    "name": "@test-mono/dummy",
+    "version": "0.1.0",
+    "description": "Dummy independent package for testing monorepo release process.",
+    "main": "src/index.js",
+    "scripts": {
+        "build": "echo 'build dummy'",
+        "test": "echo 'test dummy passed'"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/",
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/crysadrak/testing-monorepo-release-root-tags.git"
+    },
+    "license": "MIT"
+}

@@ -1,5 +1,149 @@
 {
   "nodes": {
+    "@test-mono/router": {
+      "name": "@test-mono/router",
+      "type": "lib",
+      "data": {
+        "root": "packages/router",
+        "sourceRoot": "packages/router",
+        "name": "@test-mono/router",
+        "tags": [
+          "npm:public"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "build",
+              "test"
+            ]
+          },
+          "description": "Router package for testing monorepo release process."
+        },
+        "targets": {
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "echo 'build router'",
+              "runCommand": "npm run build"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "outputs": [
+              "{projectRoot}/lib/**"
+            ],
+            "inputs": [
+              "default",
+              "^default"
+            ],
+            "cache": true
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "echo 'test router passed'",
+              "runCommand": "npm run test"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "cache": true
+          },
+          "nx-release-publish": {
+            "executor": "@nx/js:release-publish",
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "options": {},
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    },
+    "@test-mono/dummy": {
+      "name": "@test-mono/dummy",
+      "type": "lib",
+      "data": {
+        "root": "packages/dummy",
+        "sourceRoot": "packages/dummy",
+        "name": "@test-mono/dummy",
+        "tags": [
+          "npm:public"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "build",
+              "test"
+            ]
+          },
+          "description": "Dummy independent package for testing monorepo release process."
+        },
+        "targets": {
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "echo 'build dummy'",
+              "runCommand": "npm run build"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "outputs": [
+              "{projectRoot}/lib/**"
+            ],
+            "inputs": [
+              "default",
+              "^default"
+            ],
+            "cache": true
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "echo 'test dummy passed'",
+              "runCommand": "npm run test"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "cache": true
+          },
+          "nx-release-publish": {
+            "executor": "@nx/js:release-publish",
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "options": {},
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    },
     "@test-mono/core": {
       "name": "@test-mono/core",
       "type": "lib",
@@ -378,15 +522,6 @@
         "version": "12.20.55",
         "packageName": "@types/node",
         "hash": "sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ=="
-      }
-    },
-    "npm:@types/node": {
-      "type": "npm",
-      "name": "npm:@types/node",
-      "data": {
-        "version": "25.5.2",
-        "packageName": "@types/node",
-        "hash": "sha512-tO4ZIRKNC+MDWV4qKVZe3Ql/woTnmHDr5JD8UI5hn2pwBrHEwOEMZK7WlNb5RKB6EoJ02gwmQS9OrjuFnZYdpg=="
       }
     },
     "npm:fs-extra@8.1.0": {
@@ -2063,15 +2198,6 @@
         "hash": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="
       }
     },
-    "npm:undici-types": {
-      "type": "npm",
-      "name": "npm:undici-types",
-      "data": {
-        "version": "7.18.2",
-        "packageName": "undici-types",
-        "hash": "sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w=="
-      }
-    },
     "npm:universalify": {
       "type": "npm",
       "name": "npm:universalify",
@@ -2155,6 +2281,14 @@
     }
   },
   "dependencies": {
+    "@test-mono/router": [
+      {
+        "source": "@test-mono/router",
+        "target": "@test-mono/core",
+        "type": "static"
+      }
+    ],
+    "@test-mono/dummy": [],
     "@test-mono/core": [],
     "@test-mono/cli": [
       {
@@ -2672,11 +2806,6 @@
     "npm:@inquirer/external-editor": [
       {
         "source": "npm:@inquirer/external-editor",
-        "target": "npm:@types/node",
-        "type": "static"
-      },
-      {
-        "source": "npm:@inquirer/external-editor",
         "target": "npm:chardet",
         "type": "static"
       },
@@ -2821,13 +2950,6 @@
       {
         "source": "npm:@tybys/wasm-util",
         "target": "npm:tslib",
-        "type": "static"
-      }
-    ],
-    "npm:@types/node": [
-      {
-        "source": "npm:@types/node",
-        "target": "npm:undici-types",
         "type": "static"
       }
     ],

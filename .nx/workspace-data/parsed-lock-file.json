@@ -234,15 +234,6 @@
         "hash": "sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ=="
       }
     },
-    "npm:@types/node": {
-      "type": "npm",
-      "name": "npm:@types/node",
-      "data": {
-        "version": "25.5.2",
-        "packageName": "@types/node",
-        "hash": "sha512-tO4ZIRKNC+MDWV4qKVZe3Ql/woTnmHDr5JD8UI5hn2pwBrHEwOEMZK7WlNb5RKB6EoJ02gwmQS9OrjuFnZYdpg=="
-      }
-    },
     "npm:fs-extra@8.1.0": {
       "type": "npm",
       "name": "npm:fs-extra@8.1.0",
@@ -1917,15 +1908,6 @@
         "hash": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="
       }
     },
-    "npm:undici-types": {
-      "type": "npm",
-      "name": "npm:undici-types",
-      "data": {
-        "version": "7.18.2",
-        "packageName": "undici-types",
-        "hash": "sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w=="
-      }
-    },
     "npm:universalify": {
       "type": "npm",
       "name": "npm:universalify",
@@ -2481,11 +2463,6 @@
     },
     {
       "source": "npm:@inquirer/external-editor",
-      "target": "npm:@types/node",
-      "type": "static"
-    },
-    {
-      "source": "npm:@inquirer/external-editor",
       "target": "npm:chardet",
       "type": "static"
     },
@@ -2627,11 +2604,6 @@
     {
       "source": "npm:@tybys/wasm-util",
       "target": "npm:tslib",
-      "type": "static"
-    },
-    {
-      "source": "npm:@types/node",
-      "target": "npm:undici-types",
       "type": "static"
     },
     {
