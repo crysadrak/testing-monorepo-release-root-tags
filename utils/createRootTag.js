@@ -11,7 +11,7 @@ const changelog = fs.readFileSync(
 // second "## Release" heading) so we never re-read a version from a prior
 // release and can't accidentally try to create a tag that already exists.
 const latestBlockMatch = changelog.match(
-  /^## Release[\s\S]*?(?=\n## Release|$)/,
+    /^## Release[\s\S]*?(?=\n## Release|$)/,
 );
 const latestBlock = latestBlockMatch ? latestBlockMatch[0] : changelog;
 
@@ -42,4 +42,4 @@ const version = versionMatches.reduce((max, v) => {
     return vc > mc ? v : max;
 });
 
-execSync(`git tag v${version}`, { stdio: 'inherit' });
+execSync(`git tag -a "release-v${version}" -m "Release v${version}"`, { stdio: 'inherit' });
