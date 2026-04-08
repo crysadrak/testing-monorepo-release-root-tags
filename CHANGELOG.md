@@ -1,6 +1,26 @@
 ## Release (2026-04-08)
 
 ### cli
+#### 0.2.1
+
+##### Patch Changes
+
+- Updated dependencies [c935653]
+  - @test-mono/core@0.2.1
+
+
+### core
+#### 0.2.1
+
+##### Patch Changes
+
+- c935653: Fix
+
+
+
+## Release (2026-04-08)
+
+### cli
 #### 0.2.0
 
 ##### Minor Changes

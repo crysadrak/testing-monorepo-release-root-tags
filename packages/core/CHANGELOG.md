@@ -1,5 +1,11 @@
 # @test-mono/core
 
+## 0.2.1
+
+### Patch Changes
+
+- c935653: Fix
+
 ## 0.1.1
 
 ### Patch Changes

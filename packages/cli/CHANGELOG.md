@@ -1,5 +1,12 @@
 # @test-mono/cli
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies [c935653]
+  - @test-mono/core@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes
