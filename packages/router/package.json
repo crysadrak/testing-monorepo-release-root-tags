@@ -1,6 +1,6 @@
 {
     "name": "@test-mono/router",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Router package for testing monorepo release process.",
     "main": "src/index.js",
     "scripts": {

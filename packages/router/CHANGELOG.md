@@ -1,5 +1,11 @@
 # @test-mono/router
 
+## 1.1.0
+
+### Minor Changes
+
+- 5bdeb8b: Minor
+
 ## 1.0.0
 
 ### Major Changes
