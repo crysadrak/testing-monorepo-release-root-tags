@@ -9,7 +9,6 @@ on:
     branches: [ master ]
   workflow_dispatch:
 
-# Prevents multiple runs from clashing, but allows tags to finish
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
@@ -20,22 +19,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
-
-      - name: Cache node_modules
-        id: cache-modules
-        uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package.json') }}-${{ hashFiles('package.json') }}
+          cache: 'npm'
 
       - name: Install dependencies
-        if: steps.cache-modules.outputs.cache-hit != 'true'
-        run: npm install
+        run: npm ci
+
+      - name: Cache libs
+        uses: actions/cache@v4
+        with:
+          path: packages/*/lib
+          key: ${{ runner.os }}-lib-${{ github.sha }}
 
   test:
     name: Test
@@ -43,19 +39,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
+          cache: 'npm'
 
-      - name: Load node_modules from cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package.json') }}-${{ hashFiles('package.json') }}
-
-      - name: Restore workspaces
+      - name: Install dependencies
         run: npm ci
 
       - name: Build packages
@@ -67,30 +56,24 @@ jobs:
   publish:
     name: Publish to npm
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/@test-mono/')
-    needs: setup
+    needs: [setup, test]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
+          cache: 'npm'
 
-      - name: Load node_modules from cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package.json') }}-${{ hashFiles('package.json') }}
-
-      - name: Restore workspaces
+      - name: Install dependencies
         run: npm ci
 
       - name: Publish to NPM (dry-run)
         run: echo "[dry-run] would publish $(node -e "process.stdout.write(require('./package.json').name)")"
-
 
       - name: Extract Latest Root Changelog
         run: npm run release:extract-changelog
