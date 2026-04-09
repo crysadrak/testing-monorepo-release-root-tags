@@ -8,8 +8,8 @@ const changelog = fs.readFileSync(
 );
 
 // Read the version directly from the latest release heading written by syncRootChangelog.
-// The heading format is "## release-vX.X.X".
-const latestHeadingMatch = changelog.match(/^## release-v(\d+\.\d+\.\d+)/m);
+// The heading format is "## [release-vX.X.X](...) (date)" or "## release-vX.X.X (date)".
+const latestHeadingMatch = changelog.match(/^## \[?release-v(\d+\.\d+\.\d+)/m);
 
 if (!latestHeadingMatch) {
     console.error('Could not find a release-vX.X.X heading in root CHANGELOG.md');

@@ -1,8 +1,26 @@
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const ROOT_CHANGELOG = path.join(__dirname, '../CHANGELOG.md');
 const PACKAGES_DIR = path.join(__dirname, '../packages');
+
+function getRepoUrl() {
+    try {
+        const remote = execSync('git remote get-url origin', { cwd: path.join(__dirname, '..'), encoding: 'utf-8' }).trim();
+        // Convert SSH (git@github.com:owner/repo.git) to HTTPS
+        return remote
+            .replace(/^git@([^:]+):/, 'https://$1/')
+            .replace(/\.git$/, '');
+    } catch {
+        return null;
+    }
+}
+
+function getPreviousVersion(existingContent) {
+    const match = existingContent.match(/^## \[?release-v(\d+\.\d+\.\d+)/m);
+    return match ? match[1] : null;
+}
 
 const SECTION_ORDER = ['Major Changes', 'Minor Changes', 'Patch Changes'];
 
@@ -67,20 +85,29 @@ function syncChangelog() {
     }
 
     const maxVersion = versions.reduce((max, v) => (compareVersions(v, max) > 0 ? v : max));
-    let aggregatedUpdates = `## release-v${maxVersion}\n\n`;
+
+    const existingContent = fs.existsSync(ROOT_CHANGELOG)
+        ? fs.readFileSync(ROOT_CHANGELOG, 'utf-8')
+        : '';
+
+    const repoUrl = getRepoUrl();
+    const prevVersion = getPreviousVersion(existingContent);
+    const date = new Date().toISOString().split('T')[0];
+
+    const releaseHeading = (repoUrl && prevVersion)
+        ? `## [release-v${maxVersion}](${repoUrl}/compare/release-v${prevVersion}...release-v${maxVersion}) (${date})`
+        : `## release-v${maxVersion} (${date})`;
 
     const orderedKeys = [
         ...SECTION_ORDER.filter((k) => sections[k]),
         ...Object.keys(sections).filter((k) => !SECTION_ORDER.includes(k)),
     ];
 
-    for (const heading of orderedKeys) {
-        aggregatedUpdates += `### ${heading}\n\n${[...sections[heading]].join('\n')}\n\n`;
-    }
+    let aggregatedUpdates = `${releaseHeading}\n\n`;
 
-    const existingContent = fs.existsSync(ROOT_CHANGELOG)
-        ? fs.readFileSync(ROOT_CHANGELOG, 'utf-8')
-        : '';
+    for (const sectionHeading of orderedKeys) {
+        aggregatedUpdates += `### ${sectionHeading}\n\n${[...sections[sectionHeading]].join('\n')}\n\n`;
+    }
 
     // Prevent duplicate entries if the script is run twice
     if (existingContent.includes(aggregatedUpdates.trim())) {
