@@ -1,5 +1,16 @@
 # @test-mono/cli
 
+## 3.1.0
+
+### Minor Changes
+
+- d854959: Some minor changes
+
+### Patch Changes
+
+- Updated dependencies [d854959]
+  - @test-mono/core@3.1.0
+
 ## 2.0.1
 
 ### Patch Changes

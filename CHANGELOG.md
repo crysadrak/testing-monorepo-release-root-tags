@@ -1,5 +1,23 @@
 ## Release (2026-04-09)
 
+### Minor Changes
+
+- d854959: Some minor changes
+- d854959: Some minor changes
+- d854959: Some minor changes
+
+### Patch Changes
+
+- Updated dependencies [d854959]
+  - @test-mono/core@3.1.0
+- 105f677: Patch
+- d854959: Noscope changes with no commit
+- Updated dependencies [d854959]
+  - @test-mono/core@3.1.0
+
+
+## Release (2026-04-09)
+
 ### cli
 #### 2.0.1
 
