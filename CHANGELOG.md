@@ -1,3 +1,18 @@
+## [6.0.0](https://github.com/crysadrak/testing-monorepo-release-root-tags/compare/v5.1.0...v6.0.0) (2026-04-09)
+
+### Major Changes
+
+- 49e1674: Major
+
+### Minor Changes
+
+
+
+### Patch Changes
+
+
+
+
 ## 5.1.0 (2026-04-09)
 
 ### Minor Changes

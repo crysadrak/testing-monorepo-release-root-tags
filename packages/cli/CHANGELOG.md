@@ -1,5 +1,11 @@
 # @test-mono/cli
 
+## 6.0.0
+
+### Major Changes
+
+- 49e1674: Major
+
 ## 5.1.0
 
 ### Minor Changes
