@@ -1,5 +1,11 @@
 # @test-mono/core
 
+## 5.1.0
+
+### Patch Changes
+
+- 84d73f6: PAtch in core
+
 ## 5.0.0
 
 ### Major Changes

@@ -1,3 +1,17 @@
+## 5.1.0 (2026-04-09)
+
+### Minor Changes
+
+- 1476195: Minor in cli
+- 946b3cf: Minor in dumm
+
+### Patch Changes
+
+- Updated dependencies [84d73f6]
+  - @test-mono/core@5.1.0
+- 84d73f6: PAtch in core
+
+
 ## [release-v5.0.0](https://github.com/crysadrak/testing-monorepo-release-root-tags/compare/release-v4.1.0...release-v5.0.0) (2026-04-09)
 
 ### Major Changes
