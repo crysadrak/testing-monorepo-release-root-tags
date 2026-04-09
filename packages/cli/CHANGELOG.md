@@ -1,5 +1,16 @@
 # @test-mono/cli
 
+## 4.0.0
+
+### Minor Changes
+
+- 81716c1: Minor in cli
+
+### Patch Changes
+
+- Updated dependencies [1a69693]
+  - @test-mono/core@4.0.0
+
 ## 3.1.0
 
 ### Minor Changes

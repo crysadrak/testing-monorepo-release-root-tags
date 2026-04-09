@@ -1,5 +1,11 @@
 # @test-mono/core
 
+## 4.0.0
+
+### Major Changes
+
+- 1a69693: Some major
+
 ## 3.1.0
 
 ### Minor Changes

@@ -1,3 +1,22 @@
+## release-v4.0.0
+
+### Major Changes
+
+- 1a69693: Some major
+
+### Minor Changes
+
+- 81716c1: Minor in cli
+
+### Patch Changes
+
+- Updated dependencies [1a69693]
+  - @test-mono/core@4.0.0
+- 105f677: Patch
+- d854959: Noscope changes with no commit
+- e8dbd4d: Some minor in router
+
+
 ## Release (2026-04-09)
 
 ### Minor Changes

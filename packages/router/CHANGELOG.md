@@ -1,5 +1,13 @@
 # @test-mono/router
 
+## 4.0.0
+
+### Patch Changes
+
+- e8dbd4d: Some minor in router
+- Updated dependencies [1a69693]
+  - @test-mono/core@4.0.0
+
 ## 3.1.0
 
 ### Minor Changes
