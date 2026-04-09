@@ -5,6 +5,6 @@ function createDummy(options = {}) {
     };
 }
 
-// more changes in dummy
+// more changes
 
 module.exports = { createDummy };
