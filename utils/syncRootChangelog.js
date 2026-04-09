@@ -6,10 +6,26 @@ const PACKAGES_DIR = path.join(__dirname, '../packages');
 
 const SECTION_ORDER = ['Major Changes', 'Minor Changes', 'Patch Changes'];
 
+function compareVersions(a, b) {
+    const toNum = (s) => s.split('.').map(Number);
+    const [aMa, aMi, aPa] = toNum(a);
+    const [bMa, bMi, bPa] = toNum(b);
+
+    if (aMa !== bMa) {
+        return aMa - bMa;
+    }
+
+    if (aMi !== bMi) {
+        return aMi - bMi;
+    }
+
+    return aPa - bPa;
+}
+
 function syncChangelog() {
     const packageDirs = fs.readdirSync(PACKAGES_DIR);
     const sections = {};
-    let hasUpdates = false;
+    const versions = [];
 
     packageDirs.forEach((dir) => {
         const pkgLogPath = path.join(PACKAGES_DIR, dir, 'CHANGELOG.md');
@@ -20,13 +36,13 @@ function syncChangelog() {
 
         const content = fs.readFileSync(pkgLogPath, 'utf-8');
         // Matches the most recent version block in the package changelog
-        const match = content.match(/## \d+\.\d+\.\d+[\s\S]*?(?=\n## |$)/);
+        const match = content.match(/## (\d+\.\d+\.\d+)([\s\S]*?)(?=\n## |$)/);
 
         if (!match) {
             return;
         }
 
-        hasUpdates = true;
+        versions.push(match[1]);
         const block = match[0];
         const sectionRegex = /### (.+)\n([\s\S]*?)(?=\n### |\n## |$)/g;
         let sectionMatch;
@@ -37,18 +53,21 @@ function syncChangelog() {
 
             if (body) {
                 if (!sections[heading]) {
-                    sections[heading] = [];
+                    sections[heading] = new Set();
                 }
-                sections[heading].push(body);
+                // Split into individual items (each starting with "- ") to deduplicate
+                const items = body.split(/\n(?=- )/);
+                items.forEach((item) => sections[heading].add(item.trim()));
             }
         }
     });
 
-    if (!hasUpdates) {
+    if (versions.length === 0) {
         return;
     }
 
-    let aggregatedUpdates = `## Release (${new Date().toISOString().split('T')[0]})\n\n`;
+    const maxVersion = versions.reduce((max, v) => (compareVersions(v, max) > 0 ? v : max));
+    let aggregatedUpdates = `## release-v${maxVersion}\n\n`;
 
     const orderedKeys = [
         ...SECTION_ORDER.filter((k) => sections[k]),
@@ -56,7 +75,7 @@ function syncChangelog() {
     ];
 
     for (const heading of orderedKeys) {
-        aggregatedUpdates += `### ${heading}\n\n${sections[heading].join('\n')}\n\n`;
+        aggregatedUpdates += `### ${heading}\n\n${[...sections[heading]].join('\n')}\n\n`;
     }
 
     const existingContent = fs.existsSync(ROOT_CHANGELOG)
