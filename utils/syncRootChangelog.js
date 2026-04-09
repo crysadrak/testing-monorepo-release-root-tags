@@ -130,8 +130,8 @@ function syncChangelog() {
         : `## ${maxVersion} (${date})`;
 
     const orderedKeys = [
-        ...SECTION_ORDER.filter((k) => sections[k]),
-        ...Object.keys(sections).filter((k) => !SECTION_ORDER.includes(k)),
+        ...SECTION_ORDER.filter((k) => sections[k] && sections[k].size > 0),
+        ...Object.keys(sections).filter((k) => !SECTION_ORDER.includes(k) && sections[k].size > 0),
     ];
 
     let aggregatedUpdates = `${releaseHeading}\n\n`;
