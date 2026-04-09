@@ -1,6 +1,6 @@
 {
     "name": "@test-mono/dummy",
-    "version": "5.1.0",
+    "version": "7.0.0",
     "description": "Dummy independent package for testing monorepo release process.",
     "main": "src/index.js",
     "scripts": {

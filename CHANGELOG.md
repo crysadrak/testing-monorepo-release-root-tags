@@ -1,3 +1,18 @@
+## [7.0.0](https://github.com/crysadrak/testing-monorepo-release-root-tags/compare/v6.0.0...v7.0.0) (2026-04-09)
+
+### Major Changes
+
+- 1e935d9: Major dummy
+
+### Minor Changes
+
+
+
+### Patch Changes
+
+
+
+
 ## [6.0.0](https://github.com/crysadrak/testing-monorepo-release-root-tags/compare/v5.1.0...v6.0.0) (2026-04-09)
 
 ### Major Changes
