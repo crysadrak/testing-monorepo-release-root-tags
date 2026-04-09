@@ -1,5 +1,11 @@
 # @test-mono/dummy
 
+## 7.1.0
+
+### Minor Changes
+
+- 17a46aa: Minor
+
 ## 7.0.0
 
 ### Major Changes

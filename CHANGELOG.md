@@ -1,3 +1,10 @@
+## [7.1.0](https://github.com/crysadrak/testing-monorepo-release-root-tags/compare/v7.0.0...v7.1.0) (2026-04-09)
+
+### Minor Changes
+
+- 17a46aa: Minor
+
+
 ## [7.0.0](https://github.com/crysadrak/testing-monorepo-release-root-tags/compare/v6.0.0...v7.0.0) (2026-04-09)
 
 ### Major Changes
