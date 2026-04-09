@@ -1,3 +1,18 @@
+## [release-v4.1.0](https://github.com/crysadrak/testing-monorepo-release-root-tags/compare/release-v4.0.0...release-v4.1.0) (2026-04-09)
+
+### Minor Changes
+
+- 9cd95e1: Minor core change
+
+### Patch Changes
+
+- ed97173: Duplicate patch change
+- Updated dependencies [9cd95e1]
+  - @test-mono/core@4.1.0
+- 105f677: Patch
+- d854959: Noscope changes with no commit
+
+
 ## release-v4.0.0
 
 ### Major Changes

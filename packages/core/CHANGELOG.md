@@ -1,5 +1,11 @@
 # @test-mono/core
 
+## 4.1.0
+
+### Minor Changes
+
+- 9cd95e1: Minor core change
+
 ## 4.0.0
 
 ### Major Changes
