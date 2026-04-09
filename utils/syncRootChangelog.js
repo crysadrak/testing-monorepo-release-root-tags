@@ -22,6 +22,23 @@ function getPreviousVersion(existingContent) {
     return match ? match[1] : null;
 }
 
+/**
+ * Collects all commit hashes already present in any previous release block
+ * so we can skip package entries whose changes were already recorded.
+ */
+function getAlreadyRecordedHashes(existingContent) {
+    const hashes = new Set();
+    // Match lines like "- abc1234: Some message"
+    const hashRegex = /^- ([0-9a-f]{7,}): /gm;
+    let m;
+
+    while ((m = hashRegex.exec(existingContent)) !== null) {
+        hashes.add(m[1]);
+    }
+
+    return hashes;
+}
+
 const SECTION_ORDER = ['Major Changes', 'Minor Changes', 'Patch Changes'];
 
 function compareVersions(a, b) {
@@ -44,6 +61,12 @@ function syncChangelog() {
     const packageDirs = fs.readdirSync(PACKAGES_DIR);
     const sections = {};
     const versions = [];
+
+    const existingContent = fs.existsSync(ROOT_CHANGELOG)
+        ? fs.readFileSync(ROOT_CHANGELOG, 'utf-8')
+        : '';
+
+    const alreadyRecorded = getAlreadyRecordedHashes(existingContent);
 
     packageDirs.forEach((dir) => {
         const pkgLogPath = path.join(PACKAGES_DIR, dir, 'CHANGELOG.md');
@@ -75,7 +98,19 @@ function syncChangelog() {
                 }
                 // Split into individual items (each starting with "- ") to deduplicate
                 const items = body.split(/\n(?=- )/);
-                items.forEach((item) => sections[heading].add(item.trim()));
+                items.forEach((item) => {
+                    // Skip items whose commit hash was already recorded in a prior release
+                    const hashMatch = item.match(/^- ([0-9a-f]{7,}): /);
+                    if (hashMatch && alreadyRecorded.has(hashMatch[1])) {
+                        return;
+                    }
+                    // Skip "Updated dependencies [hash]" items whose hash was already recorded
+                    const depsMatch = item.match(/^- Updated dependencies \[([0-9a-f]{7,})\]/);
+                    if (depsMatch && alreadyRecorded.has(depsMatch[1])) {
+                        return;
+                    }
+                    sections[heading].add(item.trim());
+                });
             }
         }
     });
@@ -85,10 +120,6 @@ function syncChangelog() {
     }
 
     const maxVersion = versions.reduce((max, v) => (compareVersions(v, max) > 0 ? v : max));
-
-    const existingContent = fs.existsSync(ROOT_CHANGELOG)
-        ? fs.readFileSync(ROOT_CHANGELOG, 'utf-8')
-        : '';
 
     const repoUrl = getRepoUrl();
     const prevVersion = getPreviousVersion(existingContent);
