@@ -18,6 +18,43 @@
 
 
 ### dummy
+#### 2.0.1
+
+##### Patch Changes
+
+- c52fe32: PAtch
+
+
+### router
+#### 2.0.0
+
+##### Patch Changes
+
+- Updated dependencies [dde818e]
+  - @test-mono/core@2.0.0
+
+
+
+## Release (2026-04-09)
+
+### cli
+#### 2.0.0
+
+##### Patch Changes
+
+- Updated dependencies [dde818e]
+  - @test-mono/core@2.0.0
+
+
+### core
+#### 2.0.0
+
+##### Major Changes
+
+- dde818e: Major
+
+
+### dummy
 #### 1.1.0
 
 ##### Minor Changes
