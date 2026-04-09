@@ -18,6 +18,43 @@
 
 
 ### dummy
+#### 2.0.2
+
+##### Patch Changes
+
+- 105f677: Patch
+
+
+### router
+#### 2.0.1
+
+##### Patch Changes
+
+- Updated dependencies [20e3a82]
+  - @test-mono/core@3.0.0
+
+
+
+## Release (2026-04-09)
+
+### cli
+#### 2.0.1
+
+##### Patch Changes
+
+- Updated dependencies [20e3a82]
+  - @test-mono/core@3.0.0
+
+
+### core
+#### 3.0.0
+
+##### Major Changes
+
+- 20e3a82: Major
+
+
+### dummy
 #### 2.0.1
 
 ##### Patch Changes

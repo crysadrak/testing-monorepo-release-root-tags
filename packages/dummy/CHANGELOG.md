@@ -1,5 +1,11 @@
 # @test-mono/dummy
 
+## 2.0.2
+
+### Patch Changes
+
+- 105f677: Patch
+
 ## 2.0.1
 
 ### Patch Changes
