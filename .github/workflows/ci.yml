@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
     tags:
-      - 'release-v*'
+      - 'v*'
   pull_request:
     branches: [ master ]
   workflow_dispatch:
@@ -55,7 +55,7 @@ jobs:
 
   publish:
     name: Publish to npm
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/release-v')
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     needs: [setup, test]
     runs-on: ubuntu-latest
     steps:

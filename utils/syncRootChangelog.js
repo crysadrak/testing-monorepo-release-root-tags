@@ -18,7 +18,7 @@ function getRepoUrl() {
 }
 
 function getPreviousVersion(existingContent) {
-    const match = existingContent.match(/^## \[?release-v(\d+\.\d+\.\d+)/m);
+    const match = existingContent.match(/^## \[?(\d+\.\d+\.\d+)/m);
     return match ? match[1] : null;
 }
 
@@ -126,8 +126,8 @@ function syncChangelog() {
     const date = new Date().toISOString().split('T')[0];
 
     const releaseHeading = (repoUrl && prevVersion)
-        ? `## [release-v${maxVersion}](${repoUrl}/compare/release-v${prevVersion}...release-v${maxVersion}) (${date})`
-        : `## release-v${maxVersion} (${date})`;
+        ? `## [${maxVersion}](${repoUrl}/compare/v${prevVersion}...v${maxVersion}) (${date})`
+        : `## ${maxVersion} (${date})`;
 
     const orderedKeys = [
         ...SECTION_ORDER.filter((k) => sections[k]),
