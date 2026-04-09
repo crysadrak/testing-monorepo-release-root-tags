@@ -10,4 +10,6 @@ function createCore(config = {}) {
     };
 }
 
+// change comment to summary of the file
+
 module.exports = { createCore };
