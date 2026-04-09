@@ -10,5 +10,3 @@ function runCli(args = []) {
 }
 
 module.exports = { runCli };
-
-// another change
