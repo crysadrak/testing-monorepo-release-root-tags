@@ -1,5 +1,11 @@
 # @test-mono/core
 
+## 2.0.0
+
+### Major Changes
+
+- dde818e: Major
+
 ## 1.0.0
 
 ### Major Changes

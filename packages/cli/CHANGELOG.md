@@ -1,5 +1,12 @@
 # @test-mono/cli
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [dde818e]
+  - @test-mono/core@2.0.0
+
 ## 1.0.0
 
 ### Major Changes
