@@ -1,5 +1,12 @@
 # @test-mono/router
 
+## 2.0.1
+
+### Patch Changes
+
+- Updated dependencies [20e3a82]
+  - @test-mono/core@3.0.0
+
 ## 2.0.0
 
 ### Patch Changes

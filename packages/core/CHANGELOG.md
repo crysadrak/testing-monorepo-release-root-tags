@@ -1,5 +1,11 @@
 # @test-mono/core
 
+## 3.0.0
+
+### Major Changes
+
+- 20e3a82: Major
+
 ## 2.0.0
 
 ### Major Changes
