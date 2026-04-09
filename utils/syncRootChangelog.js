@@ -18,7 +18,7 @@ function getRepoUrl() {
 }
 
 function getPreviousVersion(existingContent) {
-    const match = existingContent.match(/^## \[?(?:release-v)?(\d+\.\d+\.\d+)/m);
+    const match = existingContent.match(/^## \[?(\d+\.\d+\.\d+)/m);
     return match ? match[1] : null;
 }
 
