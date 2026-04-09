@@ -1,5 +1,15 @@
 # @test-mono/core
 
+## 5.0.0
+
+### Major Changes
+
+- 595334e: Major core
+
+  - **What** Update what
+  - **Why** Update why
+  - **How** Update how
+
 ## 4.1.0
 
 ### Minor Changes

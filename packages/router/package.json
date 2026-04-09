@@ -1,6 +1,6 @@
 {
     "name": "@test-mono/router",
-    "version": "4.1.0",
+    "version": "5.0.0",
     "description": "Router package for testing monorepo release process.",
     "main": "src/index.js",
     "scripts": {
@@ -8,7 +8,7 @@
         "test": "echo 'test router passed'"
     },
     "dependencies": {
-        "@test-mono/core": "^4.1.0"
+        "@test-mono/core": "^5.0.0"
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org/",

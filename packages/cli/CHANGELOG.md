@@ -1,5 +1,26 @@
 # @test-mono/cli
 
+## 5.0.0
+
+### Minor Changes
+
+- 4f28631: Minor changes in 3 packages
+
+  - **What** Update what minor 3 packages
+  - **Why** Update why minor 3 packages
+  - **How** Update how minor 3 packages
+
+### Patch Changes
+
+- 8b6659a: PAtch cli and repoter
+
+  - **What** Update what
+  - **Why** Update why
+  - **How** Update how
+
+- Updated dependencies [595334e]
+  - @test-mono/core@5.0.0
+
 ## 4.1.0
 
 ### Patch Changes

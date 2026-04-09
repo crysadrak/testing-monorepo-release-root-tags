@@ -1,3 +1,32 @@
+## [release-v5.0.0](https://github.com/crysadrak/testing-monorepo-release-root-tags/compare/release-v4.1.0...release-v5.0.0) (2026-04-09)
+
+### Major Changes
+
+- 595334e: Major core
+
+  - **What** Update what
+  - **Why** Update why
+  - **How** Update how
+
+### Minor Changes
+
+- 4f28631: Minor changes in 3 packages
+
+  - **What** Update what minor 3 packages
+  - **Why** Update why minor 3 packages
+  - **How** Update how minor 3 packages
+
+### Patch Changes
+
+- 8b6659a: PAtch cli and repoter
+
+  - **What** Update what
+  - **Why** Update why
+  - **How** Update how
+- Updated dependencies [595334e]
+  - @test-mono/core@5.0.0
+
+
 ## [release-v4.1.0](https://github.com/crysadrak/testing-monorepo-release-root-tags/compare/release-v4.0.0...release-v4.1.0) (2026-04-09)
 
 ### Minor Changes

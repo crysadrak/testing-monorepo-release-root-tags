@@ -1,5 +1,15 @@
 # @test-mono/dummy
 
+## 5.0.0
+
+### Minor Changes
+
+- 4f28631: Minor changes in 3 packages
+
+  - **What** Update what minor 3 packages
+  - **Why** Update why minor 3 packages
+  - **How** Update how minor 3 packages
+
 ## 2.0.2
 
 ### Patch Changes
