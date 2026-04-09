@@ -1,0 +1,20 @@
+{
+    "name": "noscope",
+    "version": "0.0.1",
+    "description": "Router package for testing monorepo release process.",
+    "main": "src/index.js",
+    "scripts": {
+        "build": "echo 'build router'",
+        "test": "echo 'test router passed'"
+    },
+    "dependencies": {},
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/",
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/crysadrak/testing-monorepo-release-root-tags.git"
+    },
+    "license": "MIT"
+}
