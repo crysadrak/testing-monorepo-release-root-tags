@@ -10,6 +10,4 @@ function createRouter(routes = []) {
     };
 }
 
-// change in router
-
 module.exports = { createRouter };
